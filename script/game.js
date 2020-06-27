@@ -1,34 +1,43 @@
 //Statistic character
 class Character {
-  constructor(Hp, Mana, Attact, Defense) {
+  constructor(Hp, Mana, AttactMin, AttactMax, Defense) {
     this.Hp = Hp;
     this.Mana = Mana;
-    this.Attact = Attact;
+    this.AttactMin = AttactMin;
+    this.AttactMax = AttactMax;
     this.Defense = Defense;
   }
+  AttackPlayerMelee() {
+    var meleeAttack =
+      Math.floor(Math.random() * this.AttactMax) + this.AttactMin;
+    enemy.Hp = enemy.Hp - meleeAttack;
+    console.log(meleeAttack);
+    $(".player-stats .hp p").text("Hp: " + player.Hp);
+    $(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
+  }
+  AttackPlayerMagic() {}
 }
 //Declaration obiect
-var player = new Character(2000, 1500, 23, 40);
-var enemy = new Character(1000, 1200, 13, 20);
+var player = new Character(2200, 1500, 100, 230, 40);
+var enemy = new Character(1000, 1200, 13, 18, 20);
 
 //jQuery connect stats  show
-$(document).ready(function () {
-  //Player
-  $(".player-stats .hp p").text("Hp: " + player.Hp);
-  $(".player-stats .mana p").text("Mana: " + player.Mana);
-  $(".player-stats .attack p").text("Attack: " + player.Attact);
-  $(".player-stats .defense p").text("Defense: " + player.Defense);
-  //Enemy
-  $(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
-  $(".enemy-stats .mana p").text("Mana: " + enemy.Mana);
-  $(".enemy-stats .attack p").text("Attack: " + enemy.Attact);
-  $(".enemy-stats .defense p").text("Defense: " + enemy.Defense);
-});
-
-//var hp = document.getElementsByTagName("p")[0].innerText;
+//Player
+$(".player-stats .hp p").text("Hp: " + player.Hp);
+$(".player-stats .mana p").text("Mana: " + player.Mana);
+$(".player-stats .attack p").text(
+  "Attack: " + player.AttactMin + " - " + player.AttactMax
+);
+$(".player-stats .defense p").text("Defense: " + player.Defense);
+//Enemy
+$(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
+$(".enemy-stats .mana p").text("Mana: " + enemy.Mana);
+$(".enemy-stats .attack p").text(
+  "Attack: " + enemy.AttactMin + " - " + enemy.AttactMax
+);
+$(".enemy-stats .defense p").text("Defense: " + enemy.Defense);
 
 /*
-document.getElementsByTagName("p")[4].innerText = "HP: " + hpPlayer;
 
 //Player button atack
 document.querySelectorAll("button")[0].addEventListener("click", attact);
