@@ -1,0 +1,142 @@
+body {
+  background-color: rgb(179, 165, 165);
+}
+
+header {
+  background-color: darkgreen;
+  height: 200px;
+}
+.logo {
+  padding-top: 40px;
+  text-align: center;
+  font-size: 90px;
+}
+
+.conteiner-game {
+  margin-top: 30px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+}
+
+.player {
+  height: 500px;
+  width: 50%;
+  text-align: center;
+}
+
+.player-stats {
+  background-color: darkslategrey;
+  height: 100px;
+}
+.player-stats p {
+  margin: 0;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.image-player {
+  margin-top: 30px;
+  background-color: dodgerblue;
+  height: 380px;
+  background-image: url("../Images/player.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.enemy {
+  height: 500px;
+  width: 50%;
+  text-align: center;
+}
+
+.enemy-stats {
+  background-color: rgb(10, 236, 236);
+  height: 100px;
+}
+.enemy-stats p {
+  margin: 0;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.image-enemy {
+  margin-top: 30px;
+  background-color: rgb(77, 108, 139);
+  height: 380px;
+  background-image: url("../Images/enemy.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.game-play {
+  margin-top: 30px;
+  display: flex;
+}
+.game-button {
+  background-color: goldenrod;
+  height: 100px;
+  width: 50%;
+}
+.screen-play {
+  background-color: green;
+  height: 100px;
+  width: 50%;
+  overflow: auto;
+}
+
+.attack-sword {
+  box-shadow: 0px 10px 14px -7px #91b8b3;
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  background-color: #768d87;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 59px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2b665e;
+}
+.attack-sword:hover {
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  background-color: #6c7c7c;
+}
+.attack-sword:active {
+  position: relative;
+  top: 1px;
+}
+
+.attack-fireball {
+  box-shadow: 0px 10px 14px -7px #91b8b3;
+  background: linear-gradient(to bottom, #f50e0e 5%, #6c7c7c 100%);
+  background-color: #f50e0e;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 59px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2b665e;
+}
+.attack-fireball:hover {
+  background: linear-gradient(to bottom, #6c7c7c 5%, #f50e0e 100%);
+  background-color: #6c7c7c;
+}
+.attack-fireball:active {
+  position: relative;
+  top: 1px;
+}
+
+button {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+h4 {
+  margin: 0;
+  text-align: center;
+}
