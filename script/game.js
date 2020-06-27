@@ -14,6 +14,7 @@ class Character {
     var meleeAttack =
       Math.floor(Math.random() * this.AttactMax) + this.AttactMin;
     enemy.Hp -= meleeAttack;
+    player.Exp += meleeAttack;
     $(".player-stats .hp p").text("Hp: " + player.Hp);
     $(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
     $(".player-stats .player-exp p").text("Experiense: " + player.Exp);
@@ -24,14 +25,20 @@ class Character {
   }
   //Magic fireball
   AttackPlayerFireball() {
-    var fireballLvl = 1;
-    var fireballAttackMin = 10;
-    var fireballAttackMax = 20;
-    var fireballMana = 20;
+    var tabLvel = [
+      [10, 20, 20], //0 lvl
+      [10, 20, 20], // 1 lvl
+      [20, 50, 80],
+    ];
+
+    var fireballAttackMin = tabLvel[player.Lvl][0];
+    var fireballAttackMax = tabLvel[player.Lvl][1];
+    var fireballMana = tabLvel[player.Lvl][2];
     var fireballFire =
       Math.floor(Math.random() * fireballAttackMax) + fireballAttackMin;
     enemy.Hp -= fireballFire;
     player.Mana -= fireballMana;
+    player.Exp += fireballFire;
     $(".player-stats .mana p").text("Mana: " + player.Mana);
     $(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
     $(".player-stats .player-exp p").text("Experiense: " + player.Exp);
@@ -40,6 +47,9 @@ class Character {
     $(".screen-play").prepend(screenStatFire);
     //enemy attack
     enemy.AttackEnemy();
+    $(".attack-fireball").text(
+      "Fireball Attack: " + fireballAttackMin + " - " + fireballAttackMax
+    );
   }
   AttackEnemy() {
     var meleeAttackEnemy =
@@ -65,6 +75,10 @@ $(".player-stats .attack p").text(
 $(".player-stats .defense p").text("Defense: " + player.Defense);
 $(".player-stats .player-lvl p").text("Lvl: " + player.Lvl);
 $(".player-stats .player-exp p").text("Experiense: " + player.Exp);
+$(".attack-sword").text(
+  "Sword Attack: " + +player.AttactMin + " - " + player.AttactMax
+);
+
 //Enemy
 $(".enemy-stats .hp p").text("Hp: " + enemy.Hp);
 $(".enemy-stats .mana p").text("Mana: " + enemy.Mana);
@@ -81,43 +95,3 @@ $(".attack-sword").click(function () {
 $(".attack-fireball").click(function () {
   player.AttackPlayerFireball();
 });
-/*
-
-//Player button atack
-document.querySelectorAll("button")[0].addEventListener("click", attact);
-document.querySelectorAll("button")[1].addEventListener("click", magic);
-
-function attact() {
-  var sword_att = Math.floor(Math.random() * 50) + 20;
-  hpPlayer = hpPlayer - sword_att + 20;
-  document.getElementsByTagName("p")[4].innerText = "HP: " + hpPlayer;
-
-  var h2 = document.createElement("h4");
-  var div = document.getElementsByClassName("screen-play")[0];
-  h2.innerHTML = "Player uzył miecza: " + sword_att + " Obrazen";
-  div.appendChild(h2);
-  //return hpPlayer;
-}
-
-function magic() {
-  if (manaPlayer <= 0) {
-    var h2 = document.createElement("h4");
-    var div = document.getElementsByClassName("screen-play")[0];
-    h2.innerHTML = "Brak Many";
-    div.appendChild(h2);
-  } else {
-    var fireball = Math.floor(Math.random() * 80) + 10;
-    hpPlayer = hpPlayer - fireball;
-    document.getElementsByTagName("p")[4].innerText = "HP: " + hpPlayer;
-    manaPlayer = manaPlayer - 25;
-    document.getElementsByTagName("p")[1].innerText = "Mana: " + manaPlayer;
-
-    var h2 = document.createElement("h4");
-    var div = document.getElementsByClassName("screen-play")[0];
-    h2.innerHTML = "Player uzył fireball: " + fireball + " Obrazen";
-    div.appendChild(h2);
-    //return hpPlayesdfdsfr;
-  }
-}
-//console.log(hpPlayer);
-*/

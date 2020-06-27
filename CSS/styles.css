@@ -83,6 +83,8 @@ header {
   height: 100px;
   width: 50%;
   overflow: auto;
+  margin-left: 10px;
+  padding-left: 50px;
 }
 
 .attack-sword {
